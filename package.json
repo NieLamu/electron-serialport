@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "release-win": "electron-builder",
+    "release": "electron-builder",
     "postinstall": "electron-builder install-app-deps"
     },
   "repository": {

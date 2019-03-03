@@ -1,15 +1,16 @@
 {
   "name": "electron-serialport",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A minimal Electron application with node serialport",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "install": "electron-rebuild"
-  },
+    "release-win": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+    },
   "repository": {
     "type": "git",
-    "url": "git@github.com:johnny-five-io/electron-serialport.git"
+    "url": "git@github.com:NieLamu/electron-serialport.git"
   },
   "keywords": [
     "Electron",
@@ -22,10 +23,46 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^4.0.6",
-    "electron-rebuild": "^1.8.4"
+    "electron-builder": "^20.38.5"
   },
   "dependencies": {
     "data-table": "^2.0.0",
     "serialport": "^7.1.4"
+  },
+  "build": {
+    "productName": "electron-serialport",
+    "appId": "com.c.huxinjia",
+    "copyright": "Copyright © 2019 ${author}",
+    "artifactName": "${os}-${productName}-${version}-${arch}.${ext}",
+    "nsisWeb": {
+      "artifactName": "${productName}_Setup_${version}.${ext}",
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "resources/icons/icon.ico",
+      "uninstallerIcon": "resources/icons/icon.ico",
+      "installerHeaderIcon": "resources/icons/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "electron-serialport"
+    },
+    "win": {
+      "icon": "resources/icons/icon.ico",
+      "target": [
+        {
+          "target": "nsis-web",
+          "arch": ["x64", "ia32"]
+        }
+      ]
+    },
+    "directories": {
+      "output": "release"
+    },
+    "publish": {
+      "provider": "github",
+      "repo": "electron-serialport",
+      "owner": "NieLamu",
+      "releaseType": "release"
+    }
   }
 }

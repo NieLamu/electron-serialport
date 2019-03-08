@@ -7,7 +7,7 @@
     "start": "electron .",
     "release": "electron-builder",
     "postinstall": "electron-builder install-app-deps"
-    },
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:NieLamu/electron-serialport.git"
@@ -51,7 +51,10 @@
       "target": [
         {
           "target": "nsis-web",
-          "arch": ["x64", "ia32"]
+          "arch": [
+            "x64",
+            "ia32"
+          ]
         }
       ]
     },
